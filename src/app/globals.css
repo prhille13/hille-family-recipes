@@ -1,0 +1,126 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  --cream: #faf3e0;
+  --cream-light: #fdfaf4;
+  --ink: #1a1a1a;
+  --ink-light: #4a4a4a;
+  --ink-muted: #9a9a9a;
+  --rust: #b5451b;
+  --rust-light: #d4602e;
+  --sage: #6b7c5c;
+  --border: #e2d9c8;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+html {
+  background-color: var(--cream-light);
+}
+
+body {
+  background-color: var(--cream-light);
+  color: var(--ink);
+  font-family: Georgia, Cambria, "Times New Roman", serif;
+  -webkit-font-smoothing: antialiased;
+}
+
+/* Typography */
+h1, h2, h3 {
+  letter-spacing: -0.02em;
+}
+
+/* Scrollbar */
+::-webkit-scrollbar {
+  width: 6px;
+}
+::-webkit-scrollbar-track {
+  background: var(--cream);
+}
+::-webkit-scrollbar-thumb {
+  background: var(--border);
+  border-radius: 3px;
+}
+
+/* Recipe instructions formatting */
+.recipe-body {
+  white-space: pre-wrap;
+  line-height: 1.8;
+  font-size: 0.95rem;
+}
+
+/* Animated underline links */
+.hover-underline {
+  position: relative;
+  text-decoration: none;
+}
+.hover-underline::after {
+  content: '';
+  position: absolute;
+  bottom: -1px;
+  left: 0;
+  width: 0;
+  height: 1px;
+  background: var(--rust);
+  transition: width 0.25s ease;
+}
+.hover-underline:hover::after {
+  width: 100%;
+}
+
+/* Focus styles */
+input:focus, select:focus, textarea:focus {
+  outline: none;
+  border-color: var(--rust) !important;
+  box-shadow: 0 0 0 2px rgba(181, 69, 27, 0.12);
+}
+
+/* Fade in animation */
+@keyframes fadeUp {
+  from { opacity: 0; transform: translateY(12px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+.fade-up {
+  animation: fadeUp 0.4s ease forwards;
+}
+
+/* Card hover */
+.recipe-card {
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+.recipe-card:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 8px 24px rgba(0,0,0,0.08);
+}
+
+/* Modal */
+.modal-overlay {
+  animation: fadeIn 0.2s ease;
+}
+
+@keyframes fadeIn {
+  from { opacity: 0; }
+  to { opacity: 1; }
+}
+
+.modal-panel {
+  animation: slideUp 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+@keyframes slideUp {
+  from { opacity: 0; transform: translateY(20px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+/* Tag pills */
+.tag-pill {
+  font-family: 'Helvetica Neue', Arial, sans-serif;
+  font-size: 0.7rem;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+}
