@@ -137,7 +137,7 @@ export default function Home() {
                   animationDelay: '0.1s',
                 }}
               >
-                Dad&rsquo;s Recipes
+                Hille Family Recipes
               </h1>
               <p
                 className="mt-3 fade-up"
